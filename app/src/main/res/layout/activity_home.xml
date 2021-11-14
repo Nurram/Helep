@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.activities.home.HomeActivity">
+
+    <com.simform.custombottomnavigation.SSCustomBottomNavigation
+        android:id="@+id/bot_nav_main"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:ss_backgroundBottomColor="@color/white"
+        app:ss_countBackgroundColor="?android:colorAccent"
+        app:ss_countTextColor="@color/white"
+        app:ss_defaultIconColor="@color/black"
+        app:ss_iconTextColor="@color/black"
+        app:ss_iconTextSize="12sp"
+        app:ss_rippleColor="#2f424242"
+        app:ss_selectedIconColor="?android:colorAccent"
+        app:ss_selectedIconTextColor="?android:colorAccent"
+        app:ss_shadowColor="#1f212121"
+        app:ss_waveHeight="7" />
+
+    <FrameLayout
+        android:id="@+id/fr_container"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/bot_nav_main"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+    </FrameLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

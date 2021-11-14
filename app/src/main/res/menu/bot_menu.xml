@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/bot_home"
+        android:title="@string/home"
+        android:icon="@drawable/ic_outline_home_24"/>
+
+    <item android:id="@+id/bot_find"
+        android:title="@string/find"
+        android:icon="@drawable/ic_outline_search_24"/>
+
+    <item android:id="@+id/bot_post"
+        android:title="@string/post"
+        android:icon="@drawable/ic_outline_add_to_photos_24"/>
+
+    <item android:id="@+id/bot_chat"
+        android:title="@string/chat"
+        android:icon="@drawable/ic_outline_mark_unread_chat_alt_24"/>
+
+    <item android:id="@+id/bot_profile"
+        android:title="@string/profile"
+        android:icon="@drawable/ic_outline_person_24"/>
+</menu>
