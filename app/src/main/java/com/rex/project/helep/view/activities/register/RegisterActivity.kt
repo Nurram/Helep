@@ -29,6 +29,13 @@ class RegisterActivity : AppCompatActivity() {
 
         val viewmodelFactory = ViewModelFactory(application)
         viewModel = ViewModelProvider(this, viewmodelFactory)[RegisterViewModel::class.java]
+        viewModel.getRegisteredId().observe(this) {
+            if (it != -1L) {
+                viewModel.setLoggedIn(it)
+                Toast.makeText(this, R.string.berhasil, Toast.LENGTH_SHORT).show()
+                moveToLogin()
+            }
+        }
 
         binding.apply {
             btnRegister.setOnClickListener {
@@ -62,8 +69,6 @@ class RegisterActivity : AppCompatActivity() {
             Toast.makeText(this, R.string.password_tidak_sama, Toast.LENGTH_SHORT).show()
         } else {
             viewModel.register(user)
-            Toast.makeText(this, R.string.berhasil, Toast.LENGTH_SHORT).show()
-            moveToLogin()
         }
     }
 

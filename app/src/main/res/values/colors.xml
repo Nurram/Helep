@@ -7,5 +7,6 @@
     <color name="colorSecondaryLight">#ffac42</color>
     <color name="colorSecondaryDark">#c54c00</color>
     <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>e
+    <color name="white">#FFFFFFFF</color>
+    <color name="green">#00B707</color>
 </resources>

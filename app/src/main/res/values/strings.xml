@@ -26,18 +26,87 @@
     <string name="chat">Chat</string>
     <string name="chat_count">3</string>
 
+    <!--    Begin: Post-->
     <string name="post_tasks">Post Tasks</string>
+    <string name="on_progress">On Progress</string>
+    <string name="postingan_anda">Postingan Anda</string>
+    <string name="pilih_helper">Pilih Helper</string>
 
     <string name="buat_task">Buat Task</string>
     <string name="pilih_kategori">Pilih Kategori</string>
-    <string name="makanan">Makanan</string>
-    <string name="minuman">Minuman</string>
-    <string name="obat">Obat</string>
-    <string name="service">Service</string>
-    <string name="edukasi">Edukasi</string>
+    <string-array name="categories">
+        <item name="makanan">Makanan</item>
+        <item name="minuman">Minuman</item>
+        <item name="obat">Obat</item>
+        <item name="service">Service</item>
+        <item name="edukasi">Edukasi</item>
+    </string-array>
+    <string-array name="task_count">
+        <item name="0">0</item>
+        <item name="1">1</item>
+    </string-array>
     <string name="tulis_deskripsi_singkat">Tulis Deskripsi Singkat</string>
+    <string name="tulis_disini">Tuliskan disini....</string>
     <string name="buat_task_yang">Buat Task Yang Akan Diselesaikan</string>
     <string name="bayaran">Bayaran</string>
+    <string name="per_task">/ Task</string>
     <string name="task">Task</string>
+    <string name="masukan_biaya">Masukan biaya disini</string>
+    <string name="task_disimpan">Task telah disimpan</string>
+
+    <string name="pilih_helpers">Pilih Helpers</string>
+    <string name="lihat_progress">Lihat Progress</string>
+    <string name="pilih">Pilih</string>
+    <string name="tolak">Tolak</string>
+
+    <string name="pembayaran">Pembayaran</string>
+    <string name="keterangan">Keterangan</string>
+    <string name="order_id">Order ID: </string>
+    <string name="task_cap">TASK%d</string>
+    <string name="dibantu_oleh">Dibantu Oleh:</string>
+    <string name="total_pembayaran">Total Pembayaran</string>
+    <string name="metode_pembayaran">Metode Pembayaran</string>
+    <string name="wallet">Wallet</string>
+    <string name="google_play">Google Play</string>
+    <string name="bayar">Bayar</string>
+    <string name="silahkan_pilih_metode">Silahkan pilih metode pembayaran</string>
+
+    <string name="task_yang_telah_diselesaikan">Task Yang Telah Diselesaikan</string>
+    <string name="_100">100%</string>
+    <string name="done">Done</string>
+    <string name="jarak_yang_ditempuh">Jarak yang DItempuh</string>
+    <string name="km">Km</string>
+    <string name="waktu_yang_digunakan">Waktu Yang Ditempuh</string>
+    <string name="selesai">Selesai</string>
+    <string name="report">Report</string>
+
+    <string name="task_selesai">Task Selesai</string>
+    <string name="follow_user">Follow User</string>
+    <string name="ulasan">Ulasan</string>
+    <string name="kembali">Kembali</string>
+    <!--    End: Post-->
+
+    <!--    Begin: Find Task-->
+    <string name="find_tasks">Find Tasks</string>
+    <string name="daftar_tasks">Daftar Task</string>
+    <string name="terdekat">Terdekat</string>
+    <string name="termahal">Termahal</string>
+    <string name="_1km">1 Km</string>
+    <string name="detail">Detail</string>
+
+    <string name="detail_task">Detail Task</string>
+    <string name="task_diminta">Task Diminta</string>
+    <string name="persetejuan_pembayaran">Persetujuan Pembayaran</string>
+    <string name="setuju">Setuju</string>
+    <string name="tidak_setuju">Tidak Setuju</string>
+    <string name="ajuan_perubahan">Ajuan Perubahan</string>
+    <string name="terima">Terima</string>
+    <string name="task_count">x%d</string>
+
+    <string name="task_diterima">Task Diterima</string>
+    <string name="mohon_menunggu">Mohon menunggu konfirmasi dari pembuat task</string>
+
+    <string name="logout"><u>Logout</u></string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_view_progress">ViewProgressActivity</string>
 </resources>

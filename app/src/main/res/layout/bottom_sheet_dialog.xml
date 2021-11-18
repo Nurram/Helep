@@ -1,0 +1,320 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    app:behavior_hideable="false"
+    app:behavior_peekHeight="160dp"
+    app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">
+
+    <ImageView
+        android:id="@+id/iv_back"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/circle_primary"
+        android:padding="16dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/ic_baseline_arrow_back_ios_white_24" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/bottom_sheet_root"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="8dp"
+        android:background="@drawable/top_rounded_bg">
+
+        <View
+            android:id="@+id/v_line_top"
+            android:layout_width="80dp"
+            android:layout_height="4dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/rounded_rectangle_bg_primary"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/civ_avatar"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:src="@mipmap/ic_launcher"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/v_line_top"
+            tools:ignore="ImageContrastCheck" />
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/civ_chat"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/circle_primary"
+            android:padding="12dp"
+            android:src="@drawable/ic_baseline_chat_24"
+            app:layout_constraintBottom_toBottomOf="@+id/civ_avatar"
+            app:layout_constraintEnd_toStartOf="@+id/civ_call"
+            app:layout_constraintTop_toTopOf="@+id/civ_avatar" />
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/civ_call"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/circle_primary"
+            android:padding="12dp"
+            android:src="@drawable/ic_baseline_phone_enabled_24"
+            app:layout_constraintBottom_toBottomOf="@+id/civ_avatar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/civ_avatar" />
+
+        <TextView
+            android:id="@+id/tv_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:maxLines="1"
+            android:textColor="?android:textColorPrimary"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/civ_avatar"
+            app:layout_constraintEnd_toStartOf="@+id/civ_chat"
+            app:layout_constraintStart_toEndOf="@+id/civ_avatar"
+            app:layout_constraintTop_toTopOf="@+id/civ_avatar"
+            tools:text="Syalalalala"/>
+
+        <TextView
+            android:id="@+id/tv_task_done"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:text="@string/task_yang_telah_diselesaikan"
+            android:textColor="?android:textColorPrimary"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/civ_avatar" />
+
+        <View
+            android:id="@+id/v_circle_indicator"
+            android:layout_width="12dp"
+            android:layout_height="12dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/circle_primary"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_task_done" />
+
+        <TextView
+            android:id="@+id/tv_task_one"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:background="@android:color/transparent"
+            android:maxLines="1"
+            android:textColor="?android:textColorPrimary"
+            app:layout_constraintBottom_toBottomOf="@+id/v_circle_indicator"
+            app:layout_constraintEnd_toStartOf="@+id/tv_task_one_count"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/v_circle_indicator"
+            app:layout_constraintTop_toTopOf="@+id/v_circle_indicator"
+            tools:ignore="TouchTargetSizeCheck"
+            tools:text="Antarkan Minuman"/>
+
+        <TextView
+            android:id="@+id/tv_task_one_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:textColor="?android:textColorPrimary"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_task_one"
+            app:layout_constraintEnd_toStartOf="@+id/tv_task_one_desc"
+            app:layout_constraintTop_toTopOf="@+id/tv_task_one"
+            app:layout_constraintVertical_bias="1.0"
+            tools:text="1x" />
+
+        <TextView
+            android:id="@+id/tv_task_one_desc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:textColor="?android:colorPrimary"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_task_one"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tv_task_one"
+            app:layout_constraintVertical_bias="1.0"
+            tools:text="Done" />
+
+        <View
+            android:id="@+id/v_circle_indicator2"
+            android:layout_width="12dp"
+            android:layout_height="12dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:visibility="invisible"
+            android:background="@drawable/circle_primary"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/v_circle_indicator" />
+
+        <TextView
+            android:id="@+id/tv_task_two"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:background="@android:color/transparent"
+            android:maxLines="1"
+            android:visibility="invisible"
+            android:textColor="?android:textColorPrimary"
+            app:layout_constraintBottom_toBottomOf="@+id/v_circle_indicator2"
+            app:layout_constraintEnd_toStartOf="@+id/tv_task_two_count"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/v_circle_indicator2"
+            app:layout_constraintTop_toTopOf="@+id/v_circle_indicator2"
+            tools:ignore="TouchTargetSizeCheck"
+            tools:text="Antarkan Minuman"/>
+
+        <TextView
+            android:id="@+id/tv_task_two_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:visibility="invisible"
+            android:textColor="?android:textColorPrimary"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_task_two"
+            app:layout_constraintEnd_toStartOf="@+id/tv_task_two_desc"
+            app:layout_constraintTop_toTopOf="@+id/tv_task_two"
+            app:layout_constraintVertical_bias="1.0"
+            tools:text="1x" />
+
+        <TextView
+            android:id="@+id/tv_task_two_desc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:visibility="gone"
+            android:textColor="?android:colorPrimary"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_task_two"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tv_task_two"
+            app:layout_constraintVertical_bias="1.0"
+            tools:text="Done" />
+
+        <TextView
+            android:id="@+id/tv_progress"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:text="@string/_100"
+            android:textAlignment="center"
+            android:textColor="?android:colorAccent"
+            android:textSize="32sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_task_two" />
+
+        <TextView
+            android:id="@+id/tvv_distance"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            android:text="@string/jarak_yang_ditempuh"
+            android:textColor="?android:textColorPrimary"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_progress" />
+
+        <TextView
+            android:id="@+id/tv_distance_value"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            android:textAlignment="center"
+            android:textColor="?android:colorAccent"
+            android:textSize="32sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvv_distance"
+            tools:text="1,5 Km" />
+
+        <TextView
+            android:id="@+id/tv_time"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            android:text="@string/waktu_yang_digunakan"
+            android:textColor="?android:textColorPrimary"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_distance_value" />
+
+        <TextView
+            android:id="@+id/tv_time_value"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            android:textAlignment="center"
+            android:textColor="?android:colorAccent"
+            android:textSize="32sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_time"
+            tools:text="00 :  15 : 47" />
+
+        <Button
+            android:id="@+id/btn_done"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="56dp"
+            android:layout_marginEnd="16dp"
+            android:text="@string/selesai"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_time_value" />
+
+        <TextView
+            android:id="@+id/tv_report"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            android:text="@string/report"
+            android:textAlignment="center"
+            android:textColor="?android:colorPrimary"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btn_done" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>

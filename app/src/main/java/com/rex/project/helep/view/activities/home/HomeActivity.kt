@@ -5,7 +5,9 @@ import android.os.Bundle
 import androidx.fragment.app.Fragment
 import com.rex.project.helep.R
 import com.rex.project.helep.databinding.ActivityHomeBinding
+import com.rex.project.helep.view.fragments.find.FindFragment
 import com.rex.project.helep.view.fragments.posts.PostFragment
+import com.rex.project.helep.view.fragments.profile.ProfileFragment
 import com.simform.custombottomnavigation.Model
 
 class HomeActivity : AppCompatActivity() {
@@ -49,6 +51,8 @@ class HomeActivity : AppCompatActivity() {
             setOnMenuItemClickListener { model, _ ->
                 when(model.id) {
                     POST_ID -> replaceFragment(PostFragment())
+                    FIND_ID -> replaceFragment(FindFragment())
+                    PROFILE_ID -> replaceFragment(ProfileFragment())
                 }
             }
         }

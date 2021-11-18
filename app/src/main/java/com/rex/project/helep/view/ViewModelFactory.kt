@@ -6,13 +6,26 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.rex.project.helep.MainRepository
 import com.rex.project.helep.local.MainDb
+import com.rex.project.helep.network.RetrofitInstance
+import com.rex.project.helep.view.activities.addTask.AddTaskViewModel
 import com.rex.project.helep.view.activities.login.LoginViewModel
+import com.rex.project.helep.view.activities.payment.PaymentViewModel
 import com.rex.project.helep.view.activities.register.RegisterViewModel
+import com.rex.project.helep.view.activities.viewProgress.ViewProgressViewModel
+import com.rex.project.helep.view.fragments.find.FindViewModel
+import com.rex.project.helep.view.fragments.posts.PostViewModel
+import com.rex.project.helep.view.fragments.profile.ProfileViewModel
 
 class ViewModelFactory(application: Application): ViewModelProvider.NewInstanceFactory() {
 
     private val mainDb = MainDb.getDb(application)
-    private val mainRepository = MainRepository(mainDb?.userDao)
+    private val apiInterface = RetrofitInstance.instance.apiInterface
+    private val mainRepository = MainRepository(
+        mainDb?.userDao,
+        mainDb?.taskDao,
+        mainDb?.biddingDao,
+        apiInterface
+    )
     private val sharedPreference = application.getSharedPreferences("auth", MODE_PRIVATE)
 
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
@@ -21,6 +34,18 @@ class ViewModelFactory(application: Application): ViewModelProvider.NewInstanceF
                 RegisterViewModel(mainRepository, sharedPreference) as T
             modelClass.isAssignableFrom(LoginViewModel::class.java) ->
                 LoginViewModel(mainRepository, sharedPreference) as T
+            modelClass.isAssignableFrom(AddTaskViewModel::class.java) ->
+                AddTaskViewModel(mainRepository, sharedPreference) as T
+            modelClass.isAssignableFrom(PostViewModel::class.java) ->
+                PostViewModel(mainRepository, sharedPreference) as T
+            modelClass.isAssignableFrom(PaymentViewModel::class.java) ->
+                PaymentViewModel(mainRepository) as T
+            modelClass.isAssignableFrom(ViewProgressViewModel::class.java) ->
+                ViewProgressViewModel(mainRepository) as T
+            modelClass.isAssignableFrom(FindViewModel::class.java) ->
+                FindViewModel(mainRepository, sharedPreference) as T
+            modelClass.isAssignableFrom(ProfileViewModel::class.java) ->
+                ProfileViewModel(sharedPreference) as T
             else -> RegisterViewModel(mainRepository, sharedPreference) as T
         }
     }

@@ -14,9 +14,9 @@ class LoginViewModel(
     fun login(email: String, password: String) =
         mainRepository.getUserByEmailPassword(email, password)
 
-    fun getLoggedIn() = sharedPreferences.getBoolean("loggedIn", false)
+    fun getLoggedIn() = sharedPreferences.getLong("loggedIn", -1)
 
-    fun setLoggedIn() {
-        sharedPreferences.edit().putBoolean("loggedIn", true).apply()
+    fun setLoggedIn(id: Long) {
+        sharedPreferences.edit().putLong("loggedIn", id).apply()
     }
 }

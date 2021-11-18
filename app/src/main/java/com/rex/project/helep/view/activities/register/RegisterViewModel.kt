@@ -1,6 +1,8 @@
 package com.rex.project.helep.view.activities.register
 
 import android.content.SharedPreferences
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.rex.project.helep.MainRepository
@@ -11,13 +13,15 @@ class RegisterViewModel(
     private val mainRepository: MainRepository,
     private val sharedPreferences: SharedPreferences
 ): ViewModel() {
+    private val registeredId = MutableLiveData<Long>(-1)
 
     fun register(user: User) = viewModelScope.launch {
-        mainRepository.insertUser(user)
-        setLoggedIn()
+        registeredId.value = mainRepository.insertUser(user)
     }
 
-    private fun setLoggedIn() {
-        sharedPreferences.edit().putBoolean("loggedIn", true).apply()
+    fun setLoggedIn(id: Long) {
+        sharedPreferences.edit().putLong("loggedIn", id).apply()
     }
+
+    fun getRegisteredId(): LiveData<Long> = registeredId
 }

@@ -27,7 +27,7 @@ class LoginActivity : AppCompatActivity() {
         val viewModelFactory = ViewModelFactory(application)
         val viewModel = ViewModelProvider(this, viewModelFactory)[LoginViewModel::class.java]
         val isLoggedIn = viewModel.getLoggedIn()
-        if (isLoggedIn) moveToHome()
+        if (isLoggedIn != -1L) moveToHome()
 
         val binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
@@ -36,14 +36,14 @@ class LoginActivity : AppCompatActivity() {
             val email = binding.etEmail.text.toString()
             val password = binding.etPassword.text.toString()
 
-            viewModel.login(email, password)?.observe(this) {
-                if (it.isEmpty()) Toast.makeText(
+            viewModel.login(email, password)?.observe(this) { users ->
+                if (users.isEmpty()) Toast.makeText(
                     this,
                     R.string.salah_input,
                     Toast.LENGTH_SHORT
                 ).show()
                 else {
-                    viewModel.setLoggedIn()
+                    viewModel.setLoggedIn(users[0].id)
                     moveToHome()
                 }
             }
