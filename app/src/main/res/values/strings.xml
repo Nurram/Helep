@@ -26,6 +26,51 @@
     <string name="chat">Chat</string>
     <string name="chat_count">3</string>
 
+    <!--    Begin: Home-->
+    <string name="topup">Top Up</string>
+    <string name="view_history">View History</string>
+    <string name="helepoin">Helepoin</string>
+    <string name="_10.000">10.000</string>
+    <string name="goals">Goals</string>
+    <string name="post_10_tasks">Post 10 tasks</string>
+    <string name="_5_10">5/10</string>
+    <string name="_1000_helepoin">1000 Helepoin</string>
+    <string name="finish_10_task">Finish 10 tasks</string>
+    <string name="_8_10">8/10</string>
+    <string name="rekomendasi_task">Rekomendasi Task</string>
+    <!--    End: Home-->
+
+    <!--    Begin: Top Up-->
+    <string name="_25000">25000</string>
+    <string name="_50000">50000</string>
+    <string name="_100000">100000</string>
+    <string name="_250000">250000</string>
+    <string name="_500000">500000</string>
+    <string name="_1000000">1000000</string>
+    <string name="_0">0</string>
+    <!--    End: Top Up-->
+
+    <!--    Begin: Find Task-->
+    <string name="find_tasks">Find Tasks</string>
+    <string name="daftar_tasks">Daftar Task</string>
+    <string name="terdekat">Terdekat</string>
+    <string name="termahal">Termahal</string>
+    <string name="_1km">1 Km</string>
+    <string name="detail">Detail</string>
+
+    <string name="detail_task">Detail Task</string>
+    <string name="task_diminta">Task Diminta</string>
+    <string name="persetejuan_pembayaran">Persetujuan Pembayaran</string>
+    <string name="setuju">Setuju</string>
+    <string name="tidak_setuju">Tidak Setuju</string>
+    <string name="ajuan_perubahan">Ajuan Perubahan</string>
+    <string name="terima">Terima</string>
+    <string name="task_count">x%d</string>
+
+    <string name="task_diterima">Task Diterima</string>
+    <string name="mohon_menunggu">Mohon menunggu konfirmasi dari pembuat task</string>
+    <string name="telah_masuk_ke_saldo_wallet">%s\nTelah masuk ke saldo wallet anda</string>
+    <!--    End: Find Task-->
     <!--    Begin: Post-->
     <string name="post_tasks">Post Tasks</string>
     <string name="on_progress">On Progress</string>
@@ -40,6 +85,7 @@
         <item name="obat">Obat</item>
         <item name="service">Service</item>
         <item name="edukasi">Edukasi</item>
+        <item name="permainan">Permainan</item>
     </string-array>
     <string-array name="task_count">
         <item name="0">0</item>
@@ -86,25 +132,6 @@
     <string name="kembali">Kembali</string>
     <!--    End: Post-->
 
-    <!--    Begin: Find Task-->
-    <string name="find_tasks">Find Tasks</string>
-    <string name="daftar_tasks">Daftar Task</string>
-    <string name="terdekat">Terdekat</string>
-    <string name="termahal">Termahal</string>
-    <string name="_1km">1 Km</string>
-    <string name="detail">Detail</string>
-
-    <string name="detail_task">Detail Task</string>
-    <string name="task_diminta">Task Diminta</string>
-    <string name="persetejuan_pembayaran">Persetujuan Pembayaran</string>
-    <string name="setuju">Setuju</string>
-    <string name="tidak_setuju">Tidak Setuju</string>
-    <string name="ajuan_perubahan">Ajuan Perubahan</string>
-    <string name="terima">Terima</string>
-    <string name="task_count">x%d</string>
-
-    <string name="task_diterima">Task Diterima</string>
-    <string name="mohon_menunggu">Mohon menunggu konfirmasi dari pembuat task</string>
 
     <string name="logout"><u>Logout</u></string>
     <string name="hello_blank_fragment">Hello blank fragment</string>

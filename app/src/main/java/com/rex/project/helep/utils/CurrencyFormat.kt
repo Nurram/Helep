@@ -9,4 +9,11 @@ object CurrencyFormat {
 
         return numberFormat.format(value)
     }
+
+    fun removeFormat(value: String): Long {
+        var newValue = value.replace("Rp", "")
+        newValue = newValue.replace(".","" )
+
+        return newValue.toLong()
+    }
 }

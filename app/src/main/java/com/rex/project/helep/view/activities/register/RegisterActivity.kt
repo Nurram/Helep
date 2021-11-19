@@ -32,6 +32,7 @@ class RegisterActivity : AppCompatActivity() {
         viewModel.getRegisteredId().observe(this) {
             if (it != -1L) {
                 viewModel.setLoggedIn(it)
+                viewModel.addWallet(it)
                 Toast.makeText(this, R.string.berhasil, Toast.LENGTH_SHORT).show()
                 moveToLogin()
             }

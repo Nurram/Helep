@@ -7,33 +7,25 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.rex.project.helep.databinding.PostItemListBinding
 import com.rex.project.helep.local.entities.Task
-import com.rex.project.helep.local.entities.TaskWithBiddings
 import com.rex.project.helep.utils.CurrencyFormat
 
 class PostAdapter(
     private val onItemClick: (task: Task) -> Unit
 ): RecyclerView.Adapter<PostAdapter.PostHolder>() {
-    private val tasks = arrayListOf<TaskWithBiddings>()
+    private val tasks = arrayListOf<Task>()
 
     inner class PostHolder(
         private val binding: PostItemListBinding
         ): RecyclerView.ViewHolder(binding.root) {
-            fun bind(taskWithBiddings: TaskWithBiddings) {
+            fun bind(task: Task) {
                 binding.apply {
-                    val task = taskWithBiddings.task
-                    val biddings = taskWithBiddings.biddings
 
                     tvPostName.text = task.category
                     tvPostDesc.text = task.shortDesc
                     tvPostPrice.text = CurrencyFormat.formatRupiah(task.price)
-                    tvTaskReceive.text = "${biddings.size}\nMenerima\nTask"
-
-                    if(biddings.isNotEmpty()) {
-                        ivTaskNotif.visibility = View.VISIBLE
-                    }
+                    tvTaskReceive.text = "3\nMenerima\nTask"
 
                     btnTaskChooseHelper.setOnClickListener {
-                        Log.d("TAG", "Adapter $task")
                         onItemClick(task)
                     }
                 }
@@ -51,7 +43,7 @@ class PostAdapter(
 
     override fun getItemCount(): Int = tasks.size
 
-    fun setList(tasks: List<TaskWithBiddings>) {
+    fun setList(tasks: List<Task>) {
         this.tasks.clear()
         this.tasks.addAll(tasks)
         notifyDataSetChanged()

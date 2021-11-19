@@ -1,21 +1,24 @@
 package com.rex.project.helep.view.activities.detailTask
 
-import android.graphics.BitmapFactory
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
+import android.os.Handler
+import android.os.Looper
+import android.view.View
 import androidx.lifecycle.ViewModelProvider
 import com.rex.project.helep.R
 import com.rex.project.helep.databinding.ActivityDetailTaskBinding
-import com.rex.project.helep.local.entities.Bidding
-import com.rex.project.helep.local.entities.TaskAndUser
+import com.rex.project.helep.model.HelperTask
 import com.rex.project.helep.utils.Constants
 import com.rex.project.helep.utils.CurrencyFormat
 import com.rex.project.helep.view.ViewModelFactory
+import com.rex.project.helep.view.activities.viewProgress.ViewProgressActivity
+import com.rex.project.helep.view.activities.viewProgressFind.ViewProgressFindActivity
 
 class DetailTaskActivity : AppCompatActivity() {
     private lateinit var binding: ActivityDetailTaskBinding
-    private lateinit var viewModel: DetailViewModel
+    private var helperTask: HelperTask? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,31 +26,26 @@ class DetailTaskActivity : AppCompatActivity() {
         binding = ActivityDetailTaskBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val taskAndUser = intent.getParcelableExtra<TaskAndUser>(Constants.DATA)
-        val factory = ViewModelFactory(application)
-        viewModel = ViewModelProvider(this, factory)[DetailViewModel::class.java]
+        helperTask = intent.getParcelableExtra(Constants.DATA)
 
         binding.apply {
-            if (taskAndUser != null) {
-                val task = taskAndUser.task
-                val imageByte = taskAndUser.user.image
-                val bitmap = BitmapFactory.decodeByteArray(imageByte, 0, imageByte.size)
+            if (helperTask != null) {
+                ivBack.setOnClickListener { finish() }
+                civAvatar.setImageResource(helperTask!!.avatar)
 
-                civAvatar.setImageBitmap(bitmap)
+                var taskTotal = helperTask!!.taskOneCount
+                taskTotal += helperTask!!.taskTwoCount
 
-                var taskTotal = task.taskOneCount
-                taskTotal += task.taskTwoCount
-
-                val price = task.price
+                val price = helperTask!!.price
                 val priceTotal = price * taskTotal
 
-                tvName.text = taskAndUser.user.username
-                tvDesc.text = task.shortDesc
-                tvTaskOne.text = task.taskOne
-                tvTaskOneCount.text = getString(R.string.task_count, task.taskOneCount)
-                tvTaskTwo.text = task.taskTwo
-                tvTaskTwoCount.text = getString(R.string.task_count, task.taskTwoCount)
-                tvPricePerTask.text = task.price.let { CurrencyFormat.formatRupiah(it) }
+                tvName.text = helperTask!!.username
+                tvDesc.text = helperTask!!.taskDesc
+                tvTaskOne.text = helperTask!!.taskOne
+                tvTaskOneCount.text = getString(R.string.task_count, helperTask!!.taskOneCount)
+                tvTaskTwo.text = helperTask!!.taskTwo
+                tvTaskTwoCount.text = getString(R.string.task_count, helperTask!!.taskTwoCount)
+                tvPricePerTask.text = helperTask!!.price.let { CurrencyFormat.formatRupiah(it) }
                 tvPriceTotal.text = CurrencyFormat.formatRupiah(priceTotal)
 
                 rbAgree.isSelected = true
@@ -59,12 +57,22 @@ class DetailTaskActivity : AppCompatActivity() {
                 }
 
                 btnAccept.setOnClickListener {
-                    val bidPrice = if(rbAgree.isSelected) priceTotal
-                    else etPayValue.text.toString().toLong()
+                    partial.partialRoot.visibility = View.VISIBLE
+                    clRoot.visibility = View.GONE
 
-                    val currentId = viewModel.getLoggedIn()
-                    val bidding = Bidding(0, currentId, task.id, bidPrice)
-                    viewModel.insertBidding(bidding)
+                    val priceToPay = if(rbAgree.isSelected) CurrencyFormat.removeFormat(tvPriceTotal.text.toString())
+                    else CurrencyFormat.removeFormat(etPayValue.text.toString())
+
+                    Handler(Looper.getMainLooper())
+                        .postDelayed({
+                            partial.partialRoot.visibility = View.GONE
+                            clRoot.visibility = View.VISIBLE
+
+                            val i = Intent(this@DetailTaskActivity, ViewProgressFindActivity::class.java)
+                            i.putExtra(Constants.HELPER_ID, helperTask)
+                            i.putExtra(Constants.DATA, priceToPay)
+                            startActivity(i)
+                    }, 2000)
                 }
             }
         }

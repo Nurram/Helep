@@ -10,20 +10,23 @@ import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.LinearLayout
+import androidx.core.content.ContextCompat
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.rex.project.helep.R
 import com.rex.project.helep.databinding.FragmentFindBinding
 import com.rex.project.helep.local.entities.TaskAndUser
+import com.rex.project.helep.model.HelperTask
+import com.rex.project.helep.utils.Constants
 import com.rex.project.helep.view.ViewModelFactory
 import com.rex.project.helep.view.activities.detailTask.DetailTaskActivity
+import com.rex.project.helep.view.fragments.dashboard.HelperTaskAdapter
 
 class FindFragment : Fragment(), AdapterView.OnItemSelectedListener {
     private lateinit var binding: FragmentFindBinding
-    private lateinit var viewModel: FindViewModel
-    private lateinit var adapter: FindAdapter
+    private lateinit var adapter: HelperTaskAdapter
 
-    private var categories = listOf<TaskAndUser>()
+    private val dummyTasks = HelperTask.getDummyTask()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -36,18 +39,10 @@ class FindFragment : Fragment(), AdapterView.OnItemSelectedListener {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val factory = ViewModelFactory(requireActivity().application)
-        viewModel = ViewModelProvider(requireActivity(), factory)[FindViewModel::class.java]
-
-        adapter = FindAdapter {
+        adapter = HelperTaskAdapter {
             val i = Intent(requireContext(), DetailTaskActivity::class.java)
-            i.putExtra("data", it)
+            i.putExtra(Constants.DATA, it)
             startActivity(i)
-        }
-
-        viewModel.getAllTasks()?.observe(viewLifecycleOwner) {
-            adapter.setData(it)
-            categories = it
         }
 
         binding.apply {
@@ -67,8 +62,19 @@ class FindFragment : Fragment(), AdapterView.OnItemSelectedListener {
 
     override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
         val selectedItem = p0?.getItemAtPosition(p2)
-        val filteredList = categories.filter { it.task.category == selectedItem }
-        adapter.setData(filteredList)
+        val filteredList = dummyTasks.filter { it.category == selectedItem }
+        adapter.setData(filteredList.sortedBy { it.distance })
+
+        binding.tvExpensive.setOnClickListener {
+            binding.tvExpensive.setTextColor(ContextCompat.getColor(requireContext(), R.color.colorPrimary))
+            binding.tvNearest.setTextColor(ContextCompat.getColor(requireContext(), R.color.black))
+            adapter.setData(filteredList.sortedBy { it.price })
+        }
+        binding.tvNearest.setOnClickListener {
+            binding.tvExpensive.setTextColor(ContextCompat.getColor(requireContext(), R.color.black))
+            binding.tvNearest.setTextColor(ContextCompat.getColor(requireContext(), R.color.colorPrimary))
+            adapter.setData(filteredList.sortedBy { it.distance })
+        }
     }
 
     override fun onNothingSelected(p0: AdapterView<*>?) {}

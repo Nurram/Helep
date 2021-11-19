@@ -8,7 +8,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.rex.project.helep.databinding.PostItemListBinding
 import com.rex.project.helep.databinding.ProgressItemListBinding
 import com.rex.project.helep.local.entities.Task
-import com.rex.project.helep.local.entities.TaskWithBiddings
 import com.rex.project.helep.utils.CurrencyFormat
 
 class ProgressAdapter(

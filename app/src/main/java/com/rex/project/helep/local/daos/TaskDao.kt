@@ -5,16 +5,12 @@ import androidx.room.*
 import com.rex.project.helep.local.entities.Task
 import com.rex.project.helep.local.entities.TaskAndUser
 import com.rex.project.helep.local.entities.TaskAndUserWinner
-import com.rex.project.helep.local.entities.TaskWithBiddings
 import com.rex.project.helep.utils.Constants
 
 @Dao
 interface TaskDao {
     @Insert
-    suspend fun insert(task: Task)
-
-    @Update
-    suspend fun update(task: Task)
+    fun insert(task: Task)
 
     @Transaction
     @Query("SELECT * FROM task WHERE NOT userId=:id")
@@ -26,20 +22,20 @@ interface TaskDao {
 
     @Transaction
     @Query("SELECT * FROM task WHERE userId=:id AND status=:status")
-    fun getPendingTaskWithBiddings(
+    fun getPendingTask(
         id: Long,
         status: String = Constants.PENDING
-    ): LiveData<List<TaskWithBiddings>>
+    ): LiveData<List<Task>>
 
     @Transaction
     @Query("SELECT * FROM task WHERE userId=:id AND status=:status")
-    fun getOnProgressTaskWithBiddings(
+    fun getOnProgressTaskByUserId(
         id: Long,
         status: String = Constants.ON_PROGRESS
     ): LiveData<List<Task>>
 
     @Query("UPDATE task SET status=:status, winnerId=:winnerId WHERE id=:id")
-    suspend fun updateTaskStatus(id: Long, winnerId: Long, status: String)
+    fun updateTaskStatus(id: Long, winnerId: Long, status: String)
 
     @Query("SELECT * FROM task WHERE id=:id")
     fun getTaskAndWinnerUser(id: Long): LiveData<TaskAndUserWinner>
