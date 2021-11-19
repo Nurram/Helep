@@ -40,4 +40,6 @@ class MainRepository (
     fun getWalletByUserId(userId: Long) = walletDao?.getWalletByUserId(userId)
 
     fun topUpWallet(userId: Long, value: Long) = walletDao?.topUpWallet(userId, value)
+
+    fun spendWallet(userId: Long, value: Long) = walletDao?.spendWallet(userId, value)
 }

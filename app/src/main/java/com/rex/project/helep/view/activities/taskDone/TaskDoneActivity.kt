@@ -3,14 +3,17 @@ package com.rex.project.helep.view.activities.taskDone
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.lifecycle.ViewModelProvider
 import com.rex.project.helep.R
 import com.rex.project.helep.databinding.ActivityTaskDoneBinding
 import com.rex.project.helep.model.Helper
 import com.rex.project.helep.utils.Constants
+import com.rex.project.helep.view.ViewModelFactory
 import com.rex.project.helep.view.activities.home.HomeActivity
 
 class TaskDoneActivity : AppCompatActivity() {
     private lateinit var binding: ActivityTaskDoneBinding
+    private lateinit var taskDoneViewModel: TaskDoneViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -19,7 +22,11 @@ class TaskDoneActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         val helperId = intent.getLongExtra(Constants.HELPER_ID,-1)
+        val price = intent.getLongExtra(Constants.DATA, -1)
         val helper = Helper.getHelperById(helperId)
+
+        val factory = ViewModelFactory(application)
+        taskDoneViewModel = ViewModelProvider(this, factory)[taskDoneViewModel::class.java]
 
         binding.apply {
             civAvatar.setImageResource(helper.avatar)
@@ -78,8 +85,15 @@ class TaskDoneActivity : AppCompatActivity() {
                 startActivity(i)
             }
 
-            ivBack.setOnClickListener { finish() }
+            ivBack.setOnClickListener {
+                taskDoneViewModel.spendWallet(price)
+                moveToHome()
+            }
         }
+    }
+
+    override fun onBackPressed() {
+        moveToHome()
     }
 
     private fun setStar(star: Boolean, star1: Boolean, star2: Boolean, star3: Boolean, star4: Boolean) {
@@ -99,5 +113,11 @@ class TaskDoneActivity : AppCompatActivity() {
             if (star4) ivStar4.setImageResource(R.drawable.ic_baseline_star_24)
             else ivStar4.setImageResource(R.drawable.ic_baseline_star_outline_24)
         }
+    }
+
+    private fun moveToHome() {
+        val i = Intent(this, HomeActivity::class.java)
+        i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+        startActivity(i)
     }
 }

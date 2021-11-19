@@ -41,6 +41,7 @@ class PostFragment : Fragment() {
 
         val onProgressAdapter = ProgressAdapter {
             val i = Intent(requireContext(), ViewProgressActivity::class.java)
+            i.putExtra(Constants.DATA, it.price)
             i.putExtra(Constants.TASK_ID, it.id)
             startActivity(i)
         }

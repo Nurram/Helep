@@ -11,6 +11,7 @@ import com.rex.project.helep.view.activities.addTask.AddTaskViewModel
 import com.rex.project.helep.view.activities.login.LoginViewModel
 import com.rex.project.helep.view.activities.payment.PaymentViewModel
 import com.rex.project.helep.view.activities.register.RegisterViewModel
+import com.rex.project.helep.view.activities.taskDone.TaskDoneViewModel
 import com.rex.project.helep.view.activities.topUp.TopUpViewModel
 import com.rex.project.helep.view.activities.viewProgress.ViewProgressViewModel
 import com.rex.project.helep.view.activities.viewProgressFind.ViewProgressFindViewModel
@@ -47,6 +48,8 @@ class ViewModelFactory(application: Application): ViewModelProvider.NewInstanceF
                 PostViewModel(mainRepository, sharedPreference) as T
             modelClass.isAssignableFrom(PaymentViewModel::class.java) ->
                 PaymentViewModel(mainRepository) as T
+            modelClass.isAssignableFrom(TaskDoneViewModel::class.java) ->
+                TaskDoneViewModel(mainRepository, sharedPreference) as T
             modelClass.isAssignableFrom(ViewProgressViewModel::class.java) ->
                 ViewProgressViewModel(mainRepository) as T
             modelClass.isAssignableFrom(ViewProgressFindViewModel::class.java) ->

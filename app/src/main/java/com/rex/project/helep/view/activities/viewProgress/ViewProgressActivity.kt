@@ -34,11 +34,15 @@ class ViewProgressActivity : AppCompatActivity(), OnMapReadyCallback {
     private lateinit var binding: ActivityViewProgressBinding
     private lateinit var viewModel: ViewProgressViewModel
 
+    private var price = 0L
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         binding = ActivityViewProgressBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        price = intent.getLongExtra(Constants.DATA, -1)
 
         val mapFragment = supportFragmentManager
             .findFragmentById(R.id.map) as SupportMapFragment
@@ -142,6 +146,7 @@ class ViewProgressActivity : AppCompatActivity(), OnMapReadyCallback {
 
                 val i = Intent(this@ViewProgressActivity, TaskDoneActivity::class.java)
                 i.putExtra(Constants.HELPER_ID, task.winnerId)
+                i.putExtra(Constants.DATA, price)
                 startActivity(i)
             }
         }
