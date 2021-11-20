@@ -131,8 +131,13 @@
     <string name="ulasan">Ulasan</string>
     <string name="kembali">Kembali</string>
     <!--    End: Post-->
-
-
+    <!--    Begin: Chat-->
+    <string name="chats">Chats</string>
+    <string name="main">Mail</string>
+    <string name="donate">Donate</string>
+    <string name="give_task">Give Task</string>
+    <string name="chat_anda">Chat Anda</string>
+    <!--    End: Chat-->
     <string name="logout"><u>Logout</u></string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_view_progress">ViewProgressActivity</string>

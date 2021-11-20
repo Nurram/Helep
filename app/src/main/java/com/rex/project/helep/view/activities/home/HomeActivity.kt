@@ -5,6 +5,7 @@ import android.os.Bundle
 import androidx.fragment.app.Fragment
 import com.rex.project.helep.R
 import com.rex.project.helep.databinding.ActivityHomeBinding
+import com.rex.project.helep.view.fragments.chat.ChatFragment
 import com.rex.project.helep.view.fragments.dashboard.DashBoardFragment
 import com.rex.project.helep.view.fragments.find.FindFragment
 import com.rex.project.helep.view.fragments.posts.PostFragment
@@ -54,6 +55,7 @@ class HomeActivity : AppCompatActivity() {
                     HOME_ID -> replaceFragment(DashBoardFragment())
                     POST_ID -> replaceFragment(PostFragment())
                     FIND_ID -> replaceFragment(FindFragment())
+                    CHAT_ID -> replaceFragment(ChatFragment())
                     PROFILE_ID -> replaceFragment(ProfileFragment())
                 }
             }
