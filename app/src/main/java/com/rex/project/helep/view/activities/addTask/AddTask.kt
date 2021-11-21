@@ -1,14 +1,13 @@
 package com.rex.project.helep.view.activities.addTask
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ArrayAdapter
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import com.rex.project.helep.R
 import com.rex.project.helep.databinding.ActivityAddTaskBinding
 import com.rex.project.helep.local.entities.Task
-import com.rex.project.helep.local.entities.User
 import com.rex.project.helep.view.ViewModelFactory
 
 class AddTask : AppCompatActivity() {
@@ -59,7 +58,7 @@ class AddTask : AppCompatActivity() {
                 val taskTwoCount = spTaskTwo.selectedItem.toString().toInt()
                 val payValue = etPayValue.text.toString()
 
-                if(
+                if (
                     desc.isEmpty() || taskOne.isEmpty() || taskOneCount == 0 || payValue.isEmpty()
                 ) {
                     Toast.makeText(

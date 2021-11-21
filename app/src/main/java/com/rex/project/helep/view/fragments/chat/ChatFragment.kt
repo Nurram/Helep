@@ -2,12 +2,11 @@ package com.rex.project.helep.view.fragments.chat
 
 import android.content.Intent
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.rex.project.helep.R
 import com.rex.project.helep.databinding.FragmentChatBinding
 import com.rex.project.helep.model.Chat
 import com.rex.project.helep.utils.Constants

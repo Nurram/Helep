@@ -1,15 +1,13 @@
 package com.rex.project.helep.view.activities.payment
 
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
 import com.rex.project.helep.MainRepository
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
 
 class PaymentViewModel(
     private val mainRepository: MainRepository
-): ViewModel() {
+) : ViewModel() {
 
     fun getTaskById(id: Long) = mainRepository.getTaskById(id)
 

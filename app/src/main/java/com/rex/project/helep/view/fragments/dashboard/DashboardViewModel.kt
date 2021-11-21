@@ -7,7 +7,7 @@ import com.rex.project.helep.MainRepository
 class DashboardViewModel(
     private val mainRepository: MainRepository,
     private val sharedPreferences: SharedPreferences
-): ViewModel() {
+) : ViewModel() {
 
     private fun getLoggedIn() = sharedPreferences.getLong("loggedIn", -1)
 

@@ -1,11 +1,9 @@
 package com.rex.project.helep.view.activities.helper
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.rex.project.helep.R
 import com.rex.project.helep.databinding.ActivityHelperBinding
 import com.rex.project.helep.model.Helper
 import com.rex.project.helep.utils.Constants

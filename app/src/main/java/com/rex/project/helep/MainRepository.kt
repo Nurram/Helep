@@ -19,6 +19,11 @@ class MainRepository (
     fun getUserByEmailPassword(email: String, password: String) =
         userDao?.getUserByEmailPassword(email, password)
 
+    fun getUserById(id: Long) = userDao?.getUserById(id)
+
+    fun updateUserNameAndName(id: Long, usernme: String, name: String) =
+        userDao?.updateUserNameAndName(id, usernme, name)
+
     fun insertTask(task: Task) = taskDao?.insert(task)
 
     fun getPendingTaskByUserId(id: Long) = taskDao?.getPendingTask(id)

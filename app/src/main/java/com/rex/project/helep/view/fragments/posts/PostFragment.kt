@@ -2,11 +2,10 @@ package com.rex.project.helep.view.fragments.posts
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.rex.project.helep.databinding.FragmentPostBinding
@@ -59,14 +58,14 @@ class PostFragment : Fragment() {
 
         binding.apply {
             rvProgress.adapter = onProgressAdapter
-            rvProgress.layoutManager = object: LinearLayoutManager(requireContext()) {
+            rvProgress.layoutManager = object : LinearLayoutManager(requireContext()) {
                 override fun canScrollVertically(): Boolean {
                     return false
                 }
             }
 
             rvPosts.adapter = pendingAdapter
-            rvPosts.layoutManager = object: LinearLayoutManager(requireContext()) {
+            rvPosts.layoutManager = object : LinearLayoutManager(requireContext()) {
                 override fun canScrollVertically(): Boolean {
                     return false
                 }

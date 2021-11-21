@@ -17,4 +17,10 @@ interface UserDao {
 
     @Query("SELECT * FROM user WHERE email=:email")
     fun getUserByEmail(email: String): LiveData<List<User>>
+
+    @Query("SELECT * FROM user WHERE id=:id")
+    fun getUserById(id: Long): LiveData<User>
+
+    @Query("UPDATE user SET name=:name, username=:username WHERE id=:id")
+    fun updateUserNameAndName(id: Long, username: String, name: String): Int
 }

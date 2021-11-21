@@ -58,7 +58,7 @@
                 android:layout_height="wrap_content"
                 android:background="@android:color/transparent"
                 android:hint="@string/email"
-                android:inputType="textEmailAddress"/>
+                android:inputType="textEmailAddress" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -74,17 +74,17 @@
                 android:layout_height="wrap_content"
                 android:background="@android:color/transparent"
                 android:hint="@string/password"
-                android:inputType="textPassword"/>
+                android:inputType="textPassword" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <TextView
             android:id="@+id/tv_forgot_password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/forgot_password"
-            android:textColor="?android:colorPrimary"
             android:layout_marginHorizontal="24dp"
-            android:layout_marginTop="4dp"/>
+            android:layout_marginTop="4dp"
+            android:text="@string/forgot_password"
+            android:textColor="?android:colorPrimary" />
 
         <View
             android:layout_width="match_parent"

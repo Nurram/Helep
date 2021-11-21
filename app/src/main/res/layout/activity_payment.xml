@@ -164,8 +164,8 @@
         android:layout_height="12dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
-        android:visibility="invisible"
         android:background="@drawable/circle_primary"
+        android:visibility="invisible"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/v_circle_indicator" />
 
@@ -295,7 +295,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_payment_method" >
+        app:layout_constraintTop_toBottomOf="@+id/tv_payment_method">
 
         <RadioButton
             android:id="@+id/rb_wallet"
@@ -308,7 +308,7 @@
             android:id="@+id/rb_google_play"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/google_play"/>
+            android:text="@string/google_play" />
     </RadioGroup>
 
     <Button
@@ -319,8 +319,8 @@
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
-        android:text="@string/bayar"
         android:background="@drawable/rounded_rectangle_bg_primary"
+        android:text="@string/bayar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

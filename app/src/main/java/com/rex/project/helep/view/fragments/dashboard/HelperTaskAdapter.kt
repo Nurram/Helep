@@ -1,6 +1,5 @@
 package com.rex.project.helep.view.fragments.dashboard
 
-import android.graphics.BitmapFactory
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -10,12 +9,12 @@ import com.rex.project.helep.utils.CurrencyFormat
 
 class HelperTaskAdapter(
     private val onItemClick: (task: HelperTask) -> Unit
-): RecyclerView.Adapter<HelperTaskAdapter.HelperTaskHolder>() {
+) : RecyclerView.Adapter<HelperTaskAdapter.HelperTaskHolder>() {
     private val helperTaskList = arrayListOf<HelperTask>()
 
     inner class HelperTaskHolder(
         private val binding: PeoplePostItemListBinding
-    ): RecyclerView.ViewHolder(binding.root) {
+    ) : RecyclerView.ViewHolder(binding.root) {
         fun bind(task: HelperTask) {
             binding.apply {
                 civAvatar.setImageResource(task.avatar)
@@ -35,7 +34,8 @@ class HelperTaskAdapter(
         return HelperTaskHolder(binding)
     }
 
-    override fun onBindViewHolder(holder: HelperTaskHolder, position: Int) = holder.bind(helperTaskList[position])
+    override fun onBindViewHolder(holder: HelperTaskHolder, position: Int) =
+        holder.bind(helperTaskList[position])
 
     override fun getItemCount(): Int = helperTaskList.size
 

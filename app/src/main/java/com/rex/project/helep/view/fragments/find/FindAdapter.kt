@@ -10,12 +10,12 @@ import com.rex.project.helep.utils.CurrencyFormat
 
 class FindAdapter(
     private val onItemClick: (task: TaskAndUser) -> Unit
-): RecyclerView.Adapter<FindAdapter.FindHolder>() {
+) : RecyclerView.Adapter<FindAdapter.FindHolder>() {
     private val taskAndUserList = arrayListOf<TaskAndUser>()
 
     inner class FindHolder(
         private val binding: PeoplePostItemListBinding
-    ): RecyclerView.ViewHolder(binding.root) {
+    ) : RecyclerView.ViewHolder(binding.root) {
         fun bind(task: TaskAndUser) {
             val imageByte = task.user.image
 
@@ -41,7 +41,8 @@ class FindAdapter(
         return FindHolder(binding)
     }
 
-    override fun onBindViewHolder(holder: FindHolder, position: Int) = holder.bind(taskAndUserList[position])
+    override fun onBindViewHolder(holder: FindHolder, position: Int) =
+        holder.bind(taskAndUserList[position])
 
     override fun getItemCount(): Int = taskAndUserList.size
 

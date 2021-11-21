@@ -2,23 +2,18 @@ package com.rex.project.helep.view.fragments.find
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
-import android.widget.LinearLayout
 import androidx.core.content.ContextCompat
-import androidx.lifecycle.ViewModelProvider
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.rex.project.helep.R
 import com.rex.project.helep.databinding.FragmentFindBinding
-import com.rex.project.helep.local.entities.TaskAndUser
 import com.rex.project.helep.model.HelperTask
 import com.rex.project.helep.utils.Constants
-import com.rex.project.helep.view.ViewModelFactory
 import com.rex.project.helep.view.activities.detailTask.DetailTaskActivity
 import com.rex.project.helep.view.fragments.dashboard.HelperTaskAdapter
 
@@ -66,13 +61,28 @@ class FindFragment : Fragment(), AdapterView.OnItemSelectedListener {
         adapter.setData(filteredList.sortedBy { it.distance })
 
         binding.tvExpensive.setOnClickListener {
-            binding.tvExpensive.setTextColor(ContextCompat.getColor(requireContext(), R.color.colorPrimary))
+            binding.tvExpensive.setTextColor(
+                ContextCompat.getColor(
+                    requireContext(),
+                    R.color.colorPrimary
+                )
+            )
             binding.tvNearest.setTextColor(ContextCompat.getColor(requireContext(), R.color.black))
             adapter.setData(filteredList.sortedBy { it.price })
         }
         binding.tvNearest.setOnClickListener {
-            binding.tvExpensive.setTextColor(ContextCompat.getColor(requireContext(), R.color.black))
-            binding.tvNearest.setTextColor(ContextCompat.getColor(requireContext(), R.color.colorPrimary))
+            binding.tvExpensive.setTextColor(
+                ContextCompat.getColor(
+                    requireContext(),
+                    R.color.black
+                )
+            )
+            binding.tvNearest.setTextColor(
+                ContextCompat.getColor(
+                    requireContext(),
+                    R.color.colorPrimary
+                )
+            )
             adapter.setData(filteredList.sortedBy { it.distance })
         }
     }

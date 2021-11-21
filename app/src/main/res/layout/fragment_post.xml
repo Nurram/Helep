@@ -40,12 +40,12 @@
                 android:id="@+id/tv_progress"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/on_progress"
                 android:layout_marginHorizontal="16dp"
                 android:layout_marginTop="16dp"
-                android:textSize="16sp"
+                android:text="@string/on_progress"
                 android:textColor="?android:textColorPrimary"
-                android:visibility="gone"/>
+                android:textSize="16sp"
+                android:visibility="gone" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rv_progress"
@@ -57,11 +57,11 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/postingan_anda"
                 android:layout_marginHorizontal="16dp"
                 android:layout_marginTop="16dp"
-                android:textSize="16sp"
-                android:textColor="?android:textColorPrimary"/>
+                android:text="@string/postingan_anda"
+                android:textColor="?android:textColorPrimary"
+                android:textSize="16sp" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rv_posts"
@@ -69,7 +69,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="16dp"
                 android:layout_marginTop="8dp"
-                tools:listitem="@layout/post_item_list"/>
+                tools:listitem="@layout/post_item_list" />
 
         </LinearLayout>
     </ScrollView>

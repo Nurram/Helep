@@ -1,19 +1,16 @@
 package com.rex.project.helep.view.activities.detailTask
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import android.view.View
-import androidx.lifecycle.ViewModelProvider
+import androidx.appcompat.app.AppCompatActivity
 import com.rex.project.helep.R
 import com.rex.project.helep.databinding.ActivityDetailTaskBinding
 import com.rex.project.helep.model.HelperTask
 import com.rex.project.helep.utils.Constants
 import com.rex.project.helep.utils.CurrencyFormat
-import com.rex.project.helep.view.ViewModelFactory
-import com.rex.project.helep.view.activities.viewProgress.ViewProgressActivity
 import com.rex.project.helep.view.activities.viewProgressFind.ViewProgressFindActivity
 
 class DetailTaskActivity : AppCompatActivity() {
@@ -50,7 +47,7 @@ class DetailTaskActivity : AppCompatActivity() {
 
                 rbAgree.isSelected = true
                 rgPayment.setOnCheckedChangeListener { _, i ->
-                    when(i) {
+                    when (i) {
                         R.id.rb_agree -> etPayValue.isEnabled = false
                         else -> etPayValue.isEnabled = true
                     }
@@ -60,19 +57,23 @@ class DetailTaskActivity : AppCompatActivity() {
                     partial.partialRoot.visibility = View.VISIBLE
                     clRoot.visibility = View.GONE
 
-                    val priceToPay = if(rbAgree.isSelected) CurrencyFormat.removeFormat(tvPriceTotal.text.toString())
-                    else CurrencyFormat.removeFormat(etPayValue.text.toString())
+                    val priceToPay =
+                        if (rbAgree.isSelected) CurrencyFormat.removeFormat(tvPriceTotal.text.toString())
+                        else CurrencyFormat.removeFormat(etPayValue.text.toString())
 
                     Handler(Looper.getMainLooper())
                         .postDelayed({
                             partial.partialRoot.visibility = View.GONE
                             clRoot.visibility = View.VISIBLE
 
-                            val i = Intent(this@DetailTaskActivity, ViewProgressFindActivity::class.java)
+                            val i = Intent(
+                                this@DetailTaskActivity,
+                                ViewProgressFindActivity::class.java
+                            )
                             i.putExtra(Constants.HELPER_ID, helperTask)
                             i.putExtra(Constants.DATA, priceToPay)
                             startActivity(i)
-                    }, 2000)
+                        }, 2000)
                 }
             }
         }

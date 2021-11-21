@@ -1,7 +1,7 @@
 package com.rex.project.helep.view.activities.home
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.rex.project.helep.R
 import com.rex.project.helep.databinding.ActivityHomeBinding
@@ -51,7 +51,7 @@ class HomeActivity : AppCompatActivity() {
             setSelectedIndex(0)
             setMenuItems(menuItems, 0)
             setOnMenuItemClickListener { model, _ ->
-                when(model.id) {
+                when (model.id) {
                     HOME_ID -> replaceFragment(DashBoardFragment())
                     POST_ID -> replaceFragment(PostFragment())
                     FIND_ID -> replaceFragment(FindFragment())

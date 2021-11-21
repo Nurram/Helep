@@ -8,6 +8,7 @@ import com.rex.project.helep.MainRepository
 import com.rex.project.helep.local.MainDb
 import com.rex.project.helep.network.RetrofitInstance
 import com.rex.project.helep.view.activities.addTask.AddTaskViewModel
+import com.rex.project.helep.view.activities.editProfile.EditProfileViewModel
 import com.rex.project.helep.view.activities.login.LoginViewModel
 import com.rex.project.helep.view.activities.payment.PaymentViewModel
 import com.rex.project.helep.view.activities.register.RegisterViewModel
@@ -57,7 +58,9 @@ class ViewModelFactory(application: Application): ViewModelProvider.NewInstanceF
             modelClass.isAssignableFrom(FindViewModel::class.java) ->
                 FindViewModel(mainRepository, sharedPreference) as T
             modelClass.isAssignableFrom(ProfileViewModel::class.java) ->
-                ProfileViewModel(sharedPreference) as T
+                ProfileViewModel(mainRepository, sharedPreference) as T
+            modelClass.isAssignableFrom(EditProfileViewModel::class.java) ->
+                EditProfileViewModel(mainRepository, sharedPreference) as T
             else -> RegisterViewModel(mainRepository, sharedPreference) as T
         }
     }

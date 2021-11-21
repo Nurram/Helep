@@ -1,8 +1,8 @@
 package com.rex.project.helep.view.activities.taskDone
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import com.rex.project.helep.R
 import com.rex.project.helep.databinding.ActivityTaskDoneBinding
@@ -21,7 +21,7 @@ class TaskDoneActivity : AppCompatActivity() {
         binding = ActivityTaskDoneBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val helperId = intent.getLongExtra(Constants.HELPER_ID,-1)
+        val helperId = intent.getLongExtra(Constants.HELPER_ID, -1)
         val price = intent.getLongExtra(Constants.DATA, -1)
         val helper = Helper.getHelperById(helperId)
 
@@ -34,11 +34,11 @@ class TaskDoneActivity : AppCompatActivity() {
 
             ivStar.setOnClickListener {
                 setStar(
-                star = true,
-                star1 = false,
-                star2 = false,
-                star3 = false,
-                star4 = false
+                    star = true,
+                    star1 = false,
+                    star2 = false,
+                    star3 = false,
+                    star4 = false
                 )
             }
 
@@ -96,7 +96,13 @@ class TaskDoneActivity : AppCompatActivity() {
         moveToHome()
     }
 
-    private fun setStar(star: Boolean, star1: Boolean, star2: Boolean, star3: Boolean, star4: Boolean) {
+    private fun setStar(
+        star: Boolean,
+        star1: Boolean,
+        star2: Boolean,
+        star3: Boolean,
+        star4: Boolean
+    ) {
         binding.apply {
             if (star) ivStar.setImageResource(R.drawable.ic_baseline_star_24)
             else ivStar.setImageResource(R.drawable.ic_baseline_star_outline_24)

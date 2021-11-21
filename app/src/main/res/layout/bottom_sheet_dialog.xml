@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout android:layout_width="match_parent"
-    android:layout_height="match_parent"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:orientation="vertical"
     app:behavior_hideable="false"
     app:behavior_peekHeight="160dp"
@@ -19,8 +19,7 @@
         android:scaleType="centerCrop"
         android:src="@drawable/ic_baseline_arrow_back_ios_white_24" />
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        xmlns:tools="http://schemas.android.com/tools"
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:tools="http://schemas.android.com/tools"
         android:id="@+id/bottom_sheet_root"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -88,7 +87,7 @@
             app:layout_constraintEnd_toStartOf="@+id/civ_chat"
             app:layout_constraintStart_toEndOf="@+id/civ_avatar"
             app:layout_constraintTop_toTopOf="@+id/civ_avatar"
-            tools:text="Syalalalala"/>
+            tools:text="Syalalalala" />
 
         <TextView
             android:id="@+id/tv_task_done"
@@ -129,7 +128,7 @@
             app:layout_constraintStart_toEndOf="@+id/v_circle_indicator"
             app:layout_constraintTop_toTopOf="@+id/v_circle_indicator"
             tools:ignore="TouchTargetSizeCheck"
-            tools:text="Antarkan Minuman"/>
+            tools:text="Antarkan Minuman" />
 
         <TextView
             android:id="@+id/tv_task_one_count"
@@ -162,8 +161,8 @@
             android:layout_height="12dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
-            android:visibility="invisible"
             android:background="@drawable/circle_primary"
+            android:visibility="invisible"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/v_circle_indicator" />
 
@@ -175,23 +174,23 @@
             android:layout_marginEnd="8dp"
             android:background="@android:color/transparent"
             android:maxLines="1"
-            android:visibility="invisible"
             android:textColor="?android:textColorPrimary"
+            android:visibility="invisible"
             app:layout_constraintBottom_toBottomOf="@+id/v_circle_indicator2"
             app:layout_constraintEnd_toStartOf="@+id/tv_task_two_count"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toEndOf="@+id/v_circle_indicator2"
             app:layout_constraintTop_toTopOf="@+id/v_circle_indicator2"
             tools:ignore="TouchTargetSizeCheck"
-            tools:text="Antarkan Minuman"/>
+            tools:text="Antarkan Minuman" />
 
         <TextView
             android:id="@+id/tv_task_two_count"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
-            android:visibility="invisible"
             android:textColor="?android:textColorPrimary"
+            android:visibility="invisible"
             app:layout_constraintBottom_toBottomOf="@+id/tv_task_two"
             app:layout_constraintEnd_toStartOf="@+id/tv_task_two_desc"
             app:layout_constraintTop_toTopOf="@+id/tv_task_two"
@@ -203,8 +202,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="16dp"
-            android:visibility="gone"
             android:textColor="?android:colorPrimary"
+            android:visibility="gone"
             app:layout_constraintBottom_toBottomOf="@+id/tv_task_two"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@+id/tv_task_two"

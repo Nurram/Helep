@@ -1,7 +1,7 @@
 package com.rex.project.helep.view.activities.chatRoom
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.rex.project.helep.databinding.ActivityChatRoomBinding
 import com.rex.project.helep.model.Chat

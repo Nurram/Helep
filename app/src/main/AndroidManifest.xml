@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.rex.project.helep" >
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.rex.project.helep">
     <!--
          The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
          Google Maps Android API v2, but you must specify either coarse or fine
@@ -16,16 +17,9 @@
         android:label="@string/app_name"
         android:roundIcon="@drawable/logo"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Helep" >
-        <activity
-            android:name=".view.activities.chatRoom.ChatRoomActivity"
-            android:exported="false" />
-        <activity
-            android:name=".view.activities.topUp.TopUpActivity"
-            android:exported="true" />
-        <activity
-            android:name=".view.activities.taskDone.TaskDoneActivity"
-            android:exported="true" />
+        android:theme="@style/Theme.Helep"
+        tools:ignore="LockedOrientationActivity">
+
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
@@ -39,33 +33,58 @@
             android:value="@string/google_maps_key" />
 
         <activity
+            android:name=".view.activities.editProfile.EditProfileActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".view.activities.chatRoom.ChatRoomActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".view.activities.topUp.TopUpActivity"
+            android:exported="true"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".view.activities.taskDone.TaskDoneActivity"
+            android:exported="true"
+            android:screenOrientation="portrait" />
+
+        <activity
             android:name=".view.activities.viewProgressFind.ViewProgressFindActivity"
-            android:exported="true" />
+            android:exported="true"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".view.activities.viewProgress.ViewProgressActivity"
             android:exported="true"
-            android:label="@string/title_activity_view_progress" />
+            android:screenOrientation="portrait" />
         <activity
             android:name=".view.activities.payment.PaymentActivity"
-            android:exported="true" />
+            android:exported="true"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".view.activities.helper.HelperActivity"
-            android:exported="true" />
+            android:exported="true"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".view.activities.detailTask.DetailTaskActivity"
-            android:exported="true" />
+            android:exported="true"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".view.activities.addTask.AddTask"
-            android:exported="true" />
+            android:exported="true"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".view.activities.home.HomeActivity"
-            android:exported="true" />
+            android:exported="true"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".view.activities.register.RegisterActivity"
-            android:exported="true" />
+            android:exported="true"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".view.activities.login.LoginActivity"
-            android:exported="true" >
+            android:exported="true"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

@@ -7,7 +7,7 @@ import com.rex.project.helep.MainRepository
 class FindViewModel(
     private val mainRepository: MainRepository,
     private val sharedPreferences: SharedPreferences
-): ViewModel() {
+) : ViewModel() {
 
     fun getAllTasks() = mainRepository.getTaskAndUser(getLoggedIn())
 

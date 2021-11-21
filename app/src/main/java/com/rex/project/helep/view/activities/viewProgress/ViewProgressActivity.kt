@@ -105,7 +105,7 @@ class ViewProgressActivity : AppCompatActivity(), OnMapReadyCallback {
                 val duration = formatDuration(second)
                 binding.bottomSheetLayout.tvTimeValue.text = duration
 
-                second+=1
+                second += 1
                 handler.postDelayed(this, 1000)
             }
         }
@@ -157,12 +157,16 @@ class ViewProgressActivity : AppCompatActivity(), OnMapReadyCallback {
         var minute = seconds / 60
         var hour = 0
 
-        if(minute >= 60) {
+        if (minute >= 60) {
             hour = minute / 60
             minute %= 60
         }
 
-        return "${formatTwoDigitString(hour)}:${formatTwoDigitString(minute)}:${formatTwoDigitString(second)}"
+        return "${formatTwoDigitString(hour)}:${formatTwoDigitString(minute)}:${
+            formatTwoDigitString(
+                second
+            )
+        }"
     }
 
     private fun formatTwoDigitString(number: Int): String {

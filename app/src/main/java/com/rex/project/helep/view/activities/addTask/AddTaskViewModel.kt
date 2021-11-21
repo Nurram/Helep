@@ -2,17 +2,15 @@ package com.rex.project.helep.view.activities.addTask
 
 import android.content.SharedPreferences
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
 import com.rex.project.helep.MainRepository
 import com.rex.project.helep.local.entities.Task
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
 
 class AddTaskViewModel(
     private val mainRepository: MainRepository,
     private val sharedPreferences: SharedPreferences
-): ViewModel() {
+) : ViewModel() {
 
     fun getLoggedIn() = sharedPreferences.getLong("loggedIn", -1)
 

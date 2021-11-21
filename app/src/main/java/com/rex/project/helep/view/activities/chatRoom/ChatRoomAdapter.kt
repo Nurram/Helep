@@ -6,12 +6,12 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.rex.project.helep.databinding.ChatRoomItemListBinding
 
-class ChatRoomAdapter(): RecyclerView.Adapter<ChatRoomAdapter.ChatRoomHolder>() {
+class ChatRoomAdapter() : RecyclerView.Adapter<ChatRoomAdapter.ChatRoomHolder>() {
     private val chats = arrayListOf<Map<String, Any>>()
 
     inner class ChatRoomHolder(
         private val binding: ChatRoomItemListBinding
-    ): RecyclerView.ViewHolder(binding.root) {
+    ) : RecyclerView.ViewHolder(binding.root) {
         fun bind(chat: Map<String, Any>) {
             binding.apply {
                 val chatString = chat["chat"] as String
@@ -48,6 +48,7 @@ class ChatRoomAdapter(): RecyclerView.Adapter<ChatRoomAdapter.ChatRoomHolder>() 
         this.chats.addAll(chats)
         notifyDataSetChanged()
     }
+
     fun addChat(chat: Map<String, Any>) {
         chats.add(chat)
         notifyDataSetChanged()

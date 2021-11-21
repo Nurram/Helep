@@ -9,11 +9,11 @@ import com.rex.project.helep.model.Helper
 class HelperAdapter(
     private val helpers: List<Helper>,
     private val onClick: (helper: Helper) -> Unit
-): RecyclerView.Adapter<HelperAdapter.HelperViewHolder>() {
+) : RecyclerView.Adapter<HelperAdapter.HelperViewHolder>() {
 
     inner class HelperViewHolder(
         private val binding: HelperItemListBinding
-    ): RecyclerView.ViewHolder(binding.root) {
+    ) : RecyclerView.ViewHolder(binding.root) {
         fun bind(helper: Helper) {
             binding.apply {
                 civAvatar.setImageResource(helper.avatar)

@@ -115,13 +115,11 @@
     <string name="wallet">Wallet</string>
     <string name="google_play">Google Play</string>
     <string name="bayar">Bayar</string>
-    <string name="silahkan_pilih_metode">Silahkan pilih metode pembayaran</string>
 
     <string name="task_yang_telah_diselesaikan">Task Yang Telah Diselesaikan</string>
     <string name="_100">100%</string>
     <string name="done">Done</string>
     <string name="jarak_yang_ditempuh">Jarak yang DItempuh</string>
-    <string name="km">Km</string>
     <string name="waktu_yang_digunakan">Waktu Yang Ditempuh</string>
     <string name="selesai">Selesai</string>
     <string name="report">Report</string>
@@ -133,12 +131,22 @@
     <!--    End: Post-->
     <!--    Begin: Chat-->
     <string name="chats">Chats</string>
-    <string name="main">Mail</string>
     <string name="donate">Donate</string>
     <string name="give_task">Give Task</string>
     <string name="chat_anda">Chat Anda</string>
     <!--    End: Chat-->
-    <string name="logout"><u>Logout</u></string>
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="title_activity_view_progress">ViewProgressActivity</string>
+    <!--    Begin: Profile-->
+    <string name="edit_profile">Edit Profile</string>
+    <string name="stop_helep">Stop Helep</string>
+    <string name="_5">5.0</string>
+    <string name="pengikut">3\nPengikut</string>
+    <string name="diikuti">54\nDiikuti</string>
+    <string name="penyelesaian">100%\nPenyelesaian</string>
+    <string name="_5_bracket">(5)</string>
+    <string name="_0_bracket">(0)</string>
+    <string name="edit_photo">Edit Photo</string>
+    <string name="name">Name</string>
+    <string name="konfirmasi">Konfirmasi</string>
+    <!--    End: Profile-->
+
 </resources>

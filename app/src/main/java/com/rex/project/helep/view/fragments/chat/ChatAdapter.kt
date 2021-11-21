@@ -10,11 +10,11 @@ import com.rex.project.helep.model.Chat
 class ChatAdapter(
     private val chats: ArrayList<Chat>,
     private val onClick: (chat: Chat) -> Unit
-): RecyclerView.Adapter<ChatAdapter.ChatHolder>() {
+) : RecyclerView.Adapter<ChatAdapter.ChatHolder>() {
 
     inner class ChatHolder(
         private val binding: ChatItemListBinding,
-    ): RecyclerView.ViewHolder(binding.root) {
+    ) : RecyclerView.ViewHolder(binding.root) {
         fun bind(chat: Chat) {
             binding.apply {
                 civAvatar.setImageResource(chat.avatar)

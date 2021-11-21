@@ -1,11 +1,10 @@
 package com.rex.project.helep.view.activities.register
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.WindowManager
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import com.rex.project.helep.R
 import com.rex.project.helep.databinding.ActivityRegisterBinding
@@ -46,7 +45,16 @@ class RegisterActivity : AppCompatActivity() {
                 val password = etPassword.text.toString()
                 val passwordConf = etPasswordConfirm.text.toString()
 
-                val user = User(0, username, email, phoneNumber, password, passwordConf, byteArrayOf())
+                val user = User(
+                    0,
+                    username,
+                    username,
+                    email,
+                    phoneNumber,
+                    password,
+                    passwordConf,
+                    byteArrayOf()
+                )
                 register(user)
             }
 
@@ -60,13 +68,14 @@ class RegisterActivity : AppCompatActivity() {
             || user.email.isEmpty()
             || user.phoneNumber.isEmpty()
             || user.password.isEmpty()
-            || user.passwordConfirm.isEmpty()) {
+            || user.passwordConfirm.isEmpty()
+        ) {
             Toast.makeText(this, R.string.isi_semua_form, Toast.LENGTH_SHORT).show()
-        } else if (!android.util.Patterns.EMAIL_ADDRESS.matcher(user.email).matches()){
+        } else if (!android.util.Patterns.EMAIL_ADDRESS.matcher(user.email).matches()) {
             Toast.makeText(this, R.string.masukan_email_valid, Toast.LENGTH_SHORT).show()
-        } else if(user.password.length < 6) {
+        } else if (user.password.length < 6) {
             Toast.makeText(this, R.string.password_pendek, Toast.LENGTH_SHORT).show()
-        } else if(user.password != user.passwordConfirm) {
+        } else if (user.password != user.passwordConfirm) {
             Toast.makeText(this, R.string.password_tidak_sama, Toast.LENGTH_SHORT).show()
         } else {
             viewModel.register(user)

@@ -7,7 +7,7 @@ import com.rex.project.helep.MainRepository
 class PostViewModel(
     private val mainRepository: MainRepository,
     private val sharedPreferences: SharedPreferences
-): ViewModel() {
+) : ViewModel() {
 
     fun getPendingTaskByUserId() = mainRepository.getPendingTaskByUserId(getLoggedIn())
 
