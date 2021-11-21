@@ -36,6 +36,7 @@ class DetailTaskActivity : AppCompatActivity() {
                 val priceTotal = price * taskTotal
 
                 tvName.text = helperTask!!.username
+                tvCategory.text = helperTask!!.category
                 tvDesc.text = helperTask!!.taskDesc
                 tvTaskOne.text = helperTask!!.taskOne
                 tvTaskOneCount.text = getString(R.string.task_count, helperTask!!.taskOneCount)

@@ -1,5 +1,6 @@
 package com.rex.project.helep.view.activities.viewProgress
 
+import android.content.SharedPreferences
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -16,16 +17,23 @@ import retrofit2.Callback
 import retrofit2.Response
 
 class ViewProgressViewModel(
-    private val mainRepository: MainRepository
+    private val mainRepository: MainRepository,
+    private val sharedPreferences: SharedPreferences
 ): ViewModel() {
     private val loading = MutableLiveData(true)
     private val routes = MutableLiveData<List<LatLng>>(null)
     private val error = MutableLiveData<String>()
 
+    private fun getLoggedIn() = sharedPreferences.getLong("loggedIn", -1)
+
     fun getTaskById(id: Long) = mainRepository.getTaskById(id)
 
     fun updateTaskStatus(id: Long, winnerId: Long, status: String) = runBlocking(Dispatchers.IO) {
         mainRepository.updateTaskStatus(id, winnerId, status)
+    }
+
+    fun spendWallet(value: Long) = runBlocking(Dispatchers.IO) {
+        mainRepository.spendWallet(getLoggedIn(), value)
     }
 
     fun getRoute(origin: Map<String, String>, destination: Map<String, String>) {

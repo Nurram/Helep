@@ -5,13 +5,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.rex.project.helep.databinding.ChatRoomItemListBinding
+import com.rex.project.helep.databinding.ItemChatRoomListBinding
 
 class ChatRoomAdapter : RecyclerView.Adapter<ChatRoomAdapter.ChatRoomHolder>() {
     private val chats = arrayListOf<Map<String, Any>>()
 
     inner class ChatRoomHolder(
-        private val binding: ChatRoomItemListBinding
+        private val binding: ItemChatRoomListBinding
     ) : RecyclerView.ViewHolder(binding.root) {
         fun bind(chat: Map<String, Any>) {
             binding.apply {
@@ -34,7 +34,7 @@ class ChatRoomAdapter : RecyclerView.Adapter<ChatRoomAdapter.ChatRoomHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ChatRoomHolder {
         val inflater = LayoutInflater.from(parent.context)
-        val binding = ChatRoomItemListBinding.inflate(inflater, parent, false)
+        val binding = ItemChatRoomListBinding.inflate(inflater, parent, false)
 
         return ChatRoomHolder(binding)
     }

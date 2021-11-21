@@ -16,6 +16,7 @@
     <string name="app_description">“Solusi mencari bantuan anti ribet”</string>
     <string name="forgot_password">Forgot password</string>
     <string name="masuk">Masuk</string>
+    <string name="daftar">Daftar</string>
     <string name="belum_punya_akun">BELUM PUNYA AKUN? <font color="#FF3300">DAFTAR</font></string>
     <string name="salah_input">Email / password yang dimasukan salah!</string>
 
@@ -74,6 +75,7 @@
     <!--    Begin: Post-->
     <string name="post_tasks">Post Tasks</string>
     <string name="on_progress">On Progress</string>
+    <string name="progress">Progress</string>
     <string name="postingan_anda">Postingan Anda</string>
     <string name="pilih_helper">Pilih Helper</string>
 

@@ -136,7 +136,7 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="24dp"
             android:padding="16dp"
-            android:text="@string/masuk" />
+            android:text="@string/daftar" />
 
         <TextView
             android:id="@+id/tv_login"

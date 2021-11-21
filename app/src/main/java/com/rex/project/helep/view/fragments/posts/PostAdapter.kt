@@ -4,7 +4,7 @@ import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.rex.project.helep.databinding.PostItemListBinding
+import com.rex.project.helep.databinding.ItemPostListBinding
 import com.rex.project.helep.local.entities.Task
 import com.rex.project.helep.utils.CurrencyFormat
 
@@ -14,7 +14,7 @@ class PostAdapter(
     private val tasks = arrayListOf<Task>()
 
     inner class PostHolder(
-        private val binding: PostItemListBinding
+        private val binding: ItemPostListBinding
     ) : RecyclerView.ViewHolder(binding.root) {
         @SuppressLint("SetTextI18n")
         fun bind(task: Task) {
@@ -34,7 +34,7 @@ class PostAdapter(
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PostHolder {
         val inflater = LayoutInflater.from(parent.context)
-        val binding = PostItemListBinding.inflate(inflater, parent, false)
+        val binding = ItemPostListBinding.inflate(inflater, parent, false)
 
         return PostHolder(binding)
     }

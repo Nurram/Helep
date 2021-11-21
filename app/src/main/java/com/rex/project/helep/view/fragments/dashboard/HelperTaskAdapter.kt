@@ -4,7 +4,7 @@ import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.rex.project.helep.databinding.PeoplePostItemListBinding
+import com.rex.project.helep.databinding.ItemPeoplePostListBinding
 import com.rex.project.helep.model.HelperTask
 import com.rex.project.helep.utils.CurrencyFormat
 
@@ -14,7 +14,7 @@ class HelperTaskAdapter(
     private val helperTaskList = arrayListOf<HelperTask>()
 
     inner class HelperTaskHolder(
-        private val binding: PeoplePostItemListBinding
+        private val binding: ItemPeoplePostListBinding
     ) : RecyclerView.ViewHolder(binding.root) {
         @SuppressLint("SetTextI18n")
         fun bind(task: HelperTask) {
@@ -22,7 +22,7 @@ class HelperTaskAdapter(
                 civAvatar.setImageResource(task.avatar)
                 tvName.text = task.username
                 tvDesc.text = task.taskDesc
-                tvPrice.text = CurrencyFormat.formatRupiah(task.price)
+                tvPrice.text = "${CurrencyFormat.formatRupiah(task.price)}\n/Task"
                 tvDistance.text = "${task.distance} Km"
                 btnDetail.setOnClickListener { onItemClick(task) }
             }
@@ -31,7 +31,7 @@ class HelperTaskAdapter(
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HelperTaskHolder {
         val inflater = LayoutInflater.from(parent.context)
-        val binding = PeoplePostItemListBinding.inflate(inflater, parent, false)
+        val binding = ItemPeoplePostListBinding.inflate(inflater, parent, false)
 
         return HelperTaskHolder(binding)
     }

@@ -21,6 +21,6 @@ interface WalletDao {
     @Query("UPDATE wallet SET balance=balance+:value, credit=credit+:value WHERE userId=:userId")
     fun topUpWallet(userId: Long, value: Long)
 
-    @Query("UPDATE wallet SET balance=balance-:value, credit=credit+:value WHERE userId=:userId")
+    @Query("UPDATE wallet SET balance=balance-:value, debit=debit+:value WHERE userId=:userId")
     fun spendWallet(userId: Long, value: Long)
 }

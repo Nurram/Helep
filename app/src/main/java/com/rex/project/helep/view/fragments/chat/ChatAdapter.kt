@@ -4,7 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.rex.project.helep.R
-import com.rex.project.helep.databinding.ChatItemListBinding
+import com.rex.project.helep.databinding.ItemChatListBinding
 import com.rex.project.helep.model.Chat
 
 class ChatAdapter(
@@ -13,7 +13,7 @@ class ChatAdapter(
 ) : RecyclerView.Adapter<ChatAdapter.ChatHolder>() {
 
     inner class ChatHolder(
-        private val binding: ChatItemListBinding,
+        private val binding: ItemChatListBinding,
     ) : RecyclerView.ViewHolder(binding.root) {
         fun bind(chat: Chat) {
             binding.apply {
@@ -44,7 +44,7 @@ class ChatAdapter(
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ChatHolder {
         val inflater = LayoutInflater.from(parent.context)
-        val binding = ChatItemListBinding.inflate(inflater, parent, false)
+        val binding = ItemChatListBinding.inflate(inflater, parent, false)
 
         return ChatHolder(binding)
     }

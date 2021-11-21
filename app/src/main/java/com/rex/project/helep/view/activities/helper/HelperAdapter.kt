@@ -4,7 +4,7 @@ import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.rex.project.helep.databinding.HelperItemListBinding
+import com.rex.project.helep.databinding.ItemHelperListBinding
 import com.rex.project.helep.model.Helper
 
 class HelperAdapter(
@@ -13,7 +13,7 @@ class HelperAdapter(
 ) : RecyclerView.Adapter<HelperAdapter.HelperViewHolder>() {
 
     inner class HelperViewHolder(
-        private val binding: HelperItemListBinding
+        private val binding: ItemHelperListBinding
     ) : RecyclerView.ViewHolder(binding.root) {
 
         @SuppressLint("SetTextI18n")
@@ -35,7 +35,7 @@ class HelperAdapter(
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HelperViewHolder {
         val inflater = LayoutInflater.from(parent.context)
-        val binding = HelperItemListBinding.inflate(inflater, parent, false)
+        val binding = ItemHelperListBinding.inflate(inflater, parent, false)
 
         return HelperViewHolder(binding)
     }

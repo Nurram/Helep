@@ -2,6 +2,7 @@ package com.rex.project.helep.view.activities.taskDone
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import com.rex.project.helep.R
@@ -13,7 +14,6 @@ import com.rex.project.helep.view.activities.home.HomeActivity
 
 class TaskDoneActivity : AppCompatActivity() {
     private lateinit var binding: ActivityTaskDoneBinding
-    private lateinit var taskDoneViewModel: TaskDoneViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -22,11 +22,7 @@ class TaskDoneActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         val helperId = intent.getLongExtra(Constants.HELPER_ID, -1)
-        val price = intent.getLongExtra(Constants.DATA, -1)
         val helper = Helper.getHelperById(helperId)
-
-        val factory = ViewModelFactory(application)
-        taskDoneViewModel = ViewModelProvider(this, factory)[taskDoneViewModel::class.java]
 
         binding.apply {
             civAvatar.setImageResource(helper.avatar)
@@ -86,7 +82,6 @@ class TaskDoneActivity : AppCompatActivity() {
             }
 
             ivBack.setOnClickListener {
-                taskDoneViewModel.spendWallet(price)
                 moveToHome()
             }
         }

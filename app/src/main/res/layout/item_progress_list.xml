@@ -61,13 +61,14 @@
 
         <TextView
             android:id="@+id/tv_task_progress"
-            android:layout_width="75dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:gravity="center"
             android:textColor="@color/colorPrimary"
+            android:textSize="18sp"
             android:textStyle="bold"
-            tools:text="0%\nOn Progress" />
+            tools:text="0%\nProgress" />
 
         <Button
             android:id="@+id/btn_task_view_progress"

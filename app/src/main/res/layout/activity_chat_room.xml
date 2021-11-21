@@ -103,5 +103,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tb_chat_room"
-        tools:listitem="@layout/chat_room_item_list" />
+        tools:listitem="@layout/item_chat_room_list" />
 </androidx.constraintlayout.widget.ConstraintLayout>

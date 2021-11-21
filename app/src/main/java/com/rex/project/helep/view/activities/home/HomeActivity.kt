@@ -63,7 +63,7 @@ class HomeActivity : AppCompatActivity() {
     }
 
     private fun replaceFragment(fragment: Fragment) {
-        supportFragmentManager.beginTransaction().replace(R.id.fr_container, fragment).commit()
+        supportFragmentManager.beginTransaction().replace(R.id.fr_container, fragment).commitAllowingStateLoss()
     }
 
     companion object {

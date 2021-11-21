@@ -141,13 +141,13 @@ class ViewProgressActivity : AppCompatActivity(), OnMapReadyCallback {
             btnDone.setOnClickListener {
                 handler.removeCallbacks(runnable)
                 viewModel.updateTaskStatus(task.id, task.winnerId, Constants.DONE)
+                viewModel.spendWallet(price)
 
                 tvTaskOneDesc.visibility = View.VISIBLE
                 tvTaskTwoDesc.visibility = View.VISIBLE
 
                 val i = Intent(this@ViewProgressActivity, TaskDoneActivity::class.java)
                 i.putExtra(Constants.HELPER_ID, task.winnerId)
-                i.putExtra(Constants.DATA, price)
                 startActivity(i)
             }
         }
