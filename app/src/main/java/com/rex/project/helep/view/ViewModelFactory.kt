@@ -17,7 +17,6 @@ import com.rex.project.helep.view.activities.topUp.TopUpViewModel
 import com.rex.project.helep.view.activities.viewProgress.ViewProgressViewModel
 import com.rex.project.helep.view.activities.viewProgressFind.ViewProgressFindViewModel
 import com.rex.project.helep.view.fragments.dashboard.DashboardViewModel
-import com.rex.project.helep.view.fragments.find.FindViewModel
 import com.rex.project.helep.view.fragments.posts.PostViewModel
 import com.rex.project.helep.view.fragments.profile.ProfileViewModel
 
@@ -55,8 +54,6 @@ class ViewModelFactory(application: Application): ViewModelProvider.NewInstanceF
                 ViewProgressViewModel(mainRepository) as T
             modelClass.isAssignableFrom(ViewProgressFindViewModel::class.java) ->
                 ViewProgressFindViewModel(mainRepository, sharedPreference) as T
-            modelClass.isAssignableFrom(FindViewModel::class.java) ->
-                FindViewModel(mainRepository, sharedPreference) as T
             modelClass.isAssignableFrom(ProfileViewModel::class.java) ->
                 ProfileViewModel(mainRepository, sharedPreference) as T
             modelClass.isAssignableFrom(EditProfileViewModel::class.java) ->

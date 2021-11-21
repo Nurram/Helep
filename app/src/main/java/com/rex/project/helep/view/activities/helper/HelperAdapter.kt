@@ -1,5 +1,6 @@
 package com.rex.project.helep.view.activities.helper
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -14,6 +15,8 @@ class HelperAdapter(
     inner class HelperViewHolder(
         private val binding: HelperItemListBinding
     ) : RecyclerView.ViewHolder(binding.root) {
+
+        @SuppressLint("SetTextI18n")
         fun bind(helper: Helper) {
             binding.apply {
                 civAvatar.setImageResource(helper.avatar)

@@ -1,12 +1,13 @@
 package com.rex.project.helep.view.activities.chatRoom
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.rex.project.helep.databinding.ChatRoomItemListBinding
 
-class ChatRoomAdapter() : RecyclerView.Adapter<ChatRoomAdapter.ChatRoomHolder>() {
+class ChatRoomAdapter : RecyclerView.Adapter<ChatRoomAdapter.ChatRoomHolder>() {
     private val chats = arrayListOf<Map<String, Any>>()
 
     inner class ChatRoomHolder(
@@ -43,12 +44,14 @@ class ChatRoomAdapter() : RecyclerView.Adapter<ChatRoomAdapter.ChatRoomHolder>()
 
     override fun getItemCount(): Int = chats.size
 
+    @SuppressLint("NotifyDataSetChanged")
     fun setItem(chats: List<Map<String, Any>>) {
         this.chats.clear()
         this.chats.addAll(chats)
         notifyDataSetChanged()
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     fun addChat(chat: Map<String, Any>) {
         chats.add(chat)
         notifyDataSetChanged()

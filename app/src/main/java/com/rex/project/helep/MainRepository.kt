@@ -30,8 +30,6 @@ class MainRepository (
 
     fun getOnProgressTaskByUserId(id: Long) = taskDao?.getOnProgressTaskByUserId(id)
 
-    fun getTaskAndUser(id: Long): LiveData<List<TaskAndUser>>? = taskDao?.getTaskAndUser(id)
-
     fun getTaskById(id: Long) = taskDao?.getTaskById(id)
 
     fun updateTaskStatus(id: Long, winnerId: Long, status: String) =

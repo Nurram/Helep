@@ -16,7 +16,7 @@ class EditProfileViewModel(
 
     fun getUserById() = mainRepository.getUserById(getLoggedIn())
 
-    private val result = MutableLiveData<Int>(-1)
+    private val result = MutableLiveData(-1)
     fun updateUserNameAndName(username: String, name: String) = runBlocking(Dispatchers.IO) {
         result.postValue(mainRepository.updateUserNameAndName(getLoggedIn(), username, name))
     }

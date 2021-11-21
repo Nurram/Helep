@@ -1,5 +1,6 @@
 package com.rex.project.helep.view.activities.viewProgress
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.graphics.BitmapFactory
 import android.graphics.Color
@@ -97,6 +98,7 @@ class ViewProgressActivity : AppCompatActivity(), OnMapReadyCallback {
         }
     }
 
+    @SuppressLint("SetTextI18n")
     private fun initUi(task: Task) {
         var second = 0
         val handler = Handler(Looper.getMainLooper())
@@ -116,7 +118,6 @@ class ViewProgressActivity : AppCompatActivity(), OnMapReadyCallback {
             val user = Helper.getHelperById(task.winnerId)
             ivBack.setOnClickListener { finish() }
 
-//            val bitmap = BitmapFactory.decodeByteArray(user.image, 0 , user.image.size)
             civAvatar.setImageResource(user.avatar)
             tvName.text = user.name
             tvTaskOne.text = task.taskOne

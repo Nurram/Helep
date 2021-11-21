@@ -1,5 +1,6 @@
 package com.rex.project.helep.view.activities.viewProgressFind
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.graphics.BitmapFactory
 import android.graphics.Color
@@ -96,6 +97,7 @@ class ViewProgressFindActivity : AppCompatActivity(), OnMapReadyCallback {
         }
     }
 
+    @SuppressLint("SetTextI18n")
     private fun initUi() {
         val helperTask = intent.getParcelableExtra<HelperTask>(Constants.HELPER_ID)
 

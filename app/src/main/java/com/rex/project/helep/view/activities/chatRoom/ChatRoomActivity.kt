@@ -16,16 +16,16 @@ class ChatRoomActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         binding = ActivityChatRoomBinding.inflate(layoutInflater)
-        setContentView(binding.root)
-
-        val chat = intent.getParcelableExtra<Chat>(Constants.DATA)
-        val adapter = ChatRoomAdapter()
-        chat?.let {
-            binding.tvName.text = it.username
-            adapter.setItem(it.chats)
-        }
-
         binding.apply {
+            setContentView(root)
+
+            val chat = intent.getParcelableExtra<Chat>(Constants.DATA)
+            val adapter = ChatRoomAdapter()
+            chat?.let {
+                tvName.text = it.username
+                adapter.setItem(it.chats)
+            }
+
             ivBack.setOnClickListener { finish() }
             rvChat.adapter = adapter
             rvChat.layoutManager = LinearLayoutManager(this@ChatRoomActivity)

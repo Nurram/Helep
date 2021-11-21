@@ -1,5 +1,6 @@
 package com.rex.project.helep.view.fragments.dashboard
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -15,6 +16,7 @@ class HelperTaskAdapter(
     inner class HelperTaskHolder(
         private val binding: PeoplePostItemListBinding
     ) : RecyclerView.ViewHolder(binding.root) {
+        @SuppressLint("SetTextI18n")
         fun bind(task: HelperTask) {
             binding.apply {
                 civAvatar.setImageResource(task.avatar)
@@ -39,6 +41,7 @@ class HelperTaskAdapter(
 
     override fun getItemCount(): Int = helperTaskList.size
 
+    @SuppressLint("NotifyDataSetChanged")
     fun setData(tasks: List<HelperTask>) {
         this.helperTaskList.clear()
         this.helperTaskList.addAll(tasks)

@@ -21,11 +21,10 @@ class DetailTaskActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         binding = ActivityDetailTaskBinding.inflate(layoutInflater)
-        setContentView(binding.root)
-
         helperTask = intent.getParcelableExtra(Constants.DATA)
-
         binding.apply {
+            setContentView(root)
+
             if (helperTask != null) {
                 ivBack.setOnClickListener { finish() }
                 civAvatar.setImageResource(helperTask!!.avatar)

@@ -1,5 +1,6 @@
 package com.rex.project.helep.view.activities.payment
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
@@ -37,6 +38,7 @@ class PaymentActivity : AppCompatActivity() {
         binding = ActivityPaymentBinding.inflate(layoutInflater)
     }
 
+    @SuppressLint("SetTextI18n")
     private fun initUi(task: Task, helper: Helper) {
         binding.apply {
             setContentView(root)
@@ -73,7 +75,7 @@ class PaymentActivity : AppCompatActivity() {
                 ).show()
 
                 val i = Intent(this@PaymentActivity, HomeActivity::class.java)
-                i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
                 startActivity(i)
             }
         }

@@ -1,5 +1,6 @@
 package com.rex.project.helep.view.fragments.posts
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -15,6 +16,7 @@ class ProgressAdapter(
     inner class PogressHolder(
         private val binding: ProgressItemListBinding
     ) : RecyclerView.ViewHolder(binding.root) {
+        @SuppressLint("SetTextI18n")
         fun bind(task: Task) {
             binding.apply {
                 tvPostName.text = task.category
@@ -41,6 +43,7 @@ class ProgressAdapter(
 
     override fun getItemCount(): Int = tasks.size
 
+    @SuppressLint("NotifyDataSetChanged")
     fun setList(tasks: List<Task>) {
         this.tasks.clear()
         this.tasks.addAll(tasks)

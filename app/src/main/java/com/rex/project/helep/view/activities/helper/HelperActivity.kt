@@ -15,9 +15,6 @@ class HelperActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        binding = ActivityHelperBinding.inflate(layoutInflater)
-        setContentView(binding.root)
-
         val taskId = intent.getLongExtra(Constants.TASK_ID, -1)
         val adapter = HelperAdapter(Helper.getHelpers()) {
             val i = Intent(this, PaymentActivity::class.java)
@@ -26,12 +23,13 @@ class HelperActivity : AppCompatActivity() {
             startActivity(i)
         }
 
+        binding = ActivityHelperBinding.inflate(layoutInflater)
         binding.apply {
+            setContentView(root)
+
             rvHelper.adapter = adapter
             rvHelper.layoutManager = LinearLayoutManager(this@HelperActivity)
-            ivBack.setOnClickListener {
-                finish()
-            }
+            ivBack.setOnClickListener { finish() }
         }
     }
 }
